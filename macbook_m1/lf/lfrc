@@ -1,0 +1,53 @@
+# Custom Functions
+cmd mkdir ${{
+  printf "dir name: "
+  read ans
+  mkdir $ans
+}}
+
+cmd mkfile ${{
+  printf "file name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd opendoc ${{
+  zathura "$f" 1>/dev/null 2>&1 &
+}}
+
+cmd openred ${{
+    nvim "$f"
+}}
+
+cmd openphoto ${{
+    swayimg "$f" 1>/dev/null 2>&1 &
+}}
+
+# Archive bindings
+cmd unarchive ${{
+  case "$f" in
+      *.zip) unzip "$f" ;;
+      *.tar.gz) tar -xzvf "$f" ;;
+      *.tar.bz2) tar -xjvf "$f" ;;
+      *.tar) tar -xvf "$f" ;;
+      *) echo "Unsupported format" ;;
+  esac
+}}
+
+
+# Bindings
+map au unarchive
+map opd opendoc
+map opp openphoto
+map or openred
+
+# Basic Functions
+map . set hidden!
+map mf mkfile
+map md mkdir
+
+# Movement
+map gd cd ~/downloads
+map gp cd ~/photo
+map gc cd ~/.config
+map gw cd ~/base

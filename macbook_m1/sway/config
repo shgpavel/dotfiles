@@ -42,8 +42,8 @@ bindsym $mod+Ctrl+p exec --no-startup-id grim - | wl-copy
 # bindsym Ctrl+$mod2+C exec --no-startup-id grim -g "$(slurp)" - | wl-copy
 
 # WLED
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+bindsym XF86MonBrightnessUp exec light -A 1
+bindsym XF86MonBrightnessDown exec light -U 1
 
 # Outputs
 output "*" scale 2 scale_filter smart
